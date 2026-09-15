@@ -63,6 +63,7 @@ Instead, it acts as a frontend/provider layer (i vibecoded most of it same with 
 Each provider lives in:
 
 providers
+
 ├── apt
 
 ├── pacman
