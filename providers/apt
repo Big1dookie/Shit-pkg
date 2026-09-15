@@ -1,0 +1,23 @@
+#!/bin/bash
+
+   case "$1" in
+
+
+   search)
+        echo "[APT] Pretending to search for: $2"
+        echo "APT isnt installed yet dummy :3"
+        ;;
+
+   install)
+        echo "[APT] pretending to install shi: $2"
+        echo "APT isnt installed yet fuckass."
+        ;;
+
+
+   *)
+        echo "APT provider: what the actual fuck do you want?"
+        exit 1
+        ;;
+
+
+  esac

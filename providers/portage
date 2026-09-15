@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#IM PREGNANT
+
+case "$1" in
+
+
+   search)
+#         if [ -z "$2" ]; then
+#              echo "Usage: portage search <package>"
+#              exit 0
+#         fi
+
+
+         emerge --search "$2"
+         exit 0
+         ;;
+
+   install)
+#        if [ -z "$2" ]; then
+#             echo "Usage: portage install <package>"
+#             exit 1
+#         fi
+
+
+         sudo emerge --ask "$2"
+         ;;
+
+
+   *)
+         echo "Portage provider: "excuse me what the actual fuck are you doing in my house?" -- santa"
+         exit 1
+         ;;
+
+
+   esac

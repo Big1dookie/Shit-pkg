@@ -1,0 +1,25 @@
+#!/bin/bash
+
+  case "$1" in
+
+
+  search)
+      echo "[PACMAN] pretending to search for: $2"
+      echo "pacman isn't installed yet dummy"
+      exit 0
+      ;;
+
+
+  install)
+      echo "[PACMAN] Pretending to install: $2"
+      echo "pacman isn't installed yet dummy"
+      exit 0
+      ;;
+
+
+  *)
+      echo "Pacman provider: moans"
+      exit 1
+      ;;
+
+ esac
