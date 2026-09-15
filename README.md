@@ -64,8 +64,11 @@ Each provider lives in:
 
 providers
 ├── apt
+
 ├── pacman
+
 └── portage
+
 
 SHIT-PKG detects executable providers and presents them to the user.
 
