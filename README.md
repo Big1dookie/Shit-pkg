@@ -8,8 +8,8 @@ The goal is simple:
 
 Give one command a package let SHIT-PKG figure out which package provider should handle it.
 
-shit-pkg search niri
-shit-pkg install niri
+> shit-pkg search niri
+> shit-pkg install <pkg-name>
 
 Instead of having to remember whether a package belongs to apt, pacman, emerge, or something else, SHIT-PKG provides a common interface over multiple package managers.
 
@@ -113,9 +113,9 @@ Available providers:
 
 Choose one and SHIT-PKG hands the package to that provider.
 
- Important
+# Important
 
-SHIT-PKG is not currently a universal package-name compatibility layer.
+**SHIT-PKG is not currently a universal package-name compatibility layer.***
 
 For example:
 
@@ -130,31 +130,31 @@ Eventually SHIT-PKG should be able to understand these differences, but for now 
 
 Clone the repository:
 
-git clone <repository-url>
-cd shit-pkg
+> git clone <repository-url>
+> cd shit-pkg
 
 Make the main script executable:
 
-chmod +x shit-pkg
+> chmod +x shit-pkg
 
 You can run it directly:
 
-./shit-pkg detect
+> ./shit-pkg detect
 
 Or put it somewhere in your PATH:
 
-mkdir -p ~/.local/bin
-ln -sf "$PWD/shit-pkg" ~/.local/bin/shit-pkg
+> mkdir -p ~/.local/bin
+> ln -sf "$PWD/shit-pkg" ~/.local/bin/shit-pkg
 
 Then make sure ~/.local/bin is in your PATH.
 
 Check:
 
-command -v shit-pkg
+> command -v shit-pkg
 
 For Development:
 
-SHIT-PKG is currently written in Bash.
+SHIT-PKG is currently written in Bash, yep.
 
 Syntax-check the script with:
 
