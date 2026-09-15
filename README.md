@@ -1,4 +1,4 @@
-SHIT-PKG
+## SHIT-PKG
 
 A package manager wrapper (or a provider) that shouldn’t exist.
 
