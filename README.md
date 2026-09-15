@@ -1,4 +1,4 @@
-## SHIT-PKG
+## SHIT-PKG (CHECK SIDE NOTE AT THE VERY BOTTOM OF THIS README)
 
 A package manager wrapper (or a provider) that shouldn’t exist.
 
@@ -217,4 +217,10 @@ SHIT-PKG is unfinished, experimental software.
 
 If it breaks your package database, I warned you.
 
-If it works, pretend I planned it. (also side note: pacman isn't tested, apt isnt implemented.... yet so use it at your own risk)
+If it works, pretend I planned it.
+### (also side note: pacman isn't tested, apt isnt implemented.... yet so use it at your own risk ALSO I DIDNT REALLY PUT SHIT-PKG/BACKENDS BECAUSE THE FILE IS TOO BIG AND IT HAS pacman-root AND pacman ALSO IT HAS NO PORTAGE THERE TOO SO FUCK
+MUST ADD BACKENDS: BACKEND FOLDER CONTAINING 
+APT AND APT-root
+pacman AND pacman-root
+portage AND portage-root
+THIS SHIT IS UNFINISHED AND I MADE IT IN LIKE A RANDOM WEDNESDAY SO YEA)
