@@ -1,0 +1,180 @@
+#!/bin/bash
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+
+echo "=== --: SHIT-PKG :-- ==="
+echo
+
+
+providers=()
+
+ for provider in "$SCRIPT_DIR/providers"/*; do
+     if [ -x "$provider" ]; then
+         providers+=("$(basename "$provider")")
+     fi
+  done
+
+case "$1" in
+
+     detect)
+         echo "Detected package providers:"
+         echo
+
+
+         if [ ${#providers[@]} -eq 0 ]; then
+             echo "  None detected.. dumbass."
+         else
+             for provider in "${providers[@]}"; do
+                 echo " :3 $provider"
+             done
+         fi
+         ;;
+
+    search)
+         if [ -z "$2" ]; then
+             echo "Usage: shit-pkg search <package>"
+             exit 1
+         fi
+
+         echo "Searching for: $2"
+         echo
+
+         found_providers=()
+
+         for provider in "${providers[@]}"; do
+             echo "[$provider]"
+
+
+             "$SCRIPT_DIR/providers/$provider" search "$2"
+
+
+             found_providers+=("$provider")
+
+
+             echo
+         done
+
+
+         if [ ${#found_providers[@]} -eq 0 ]; then
+             echo "No providers found a package. :("
+             exit 1
+         fi
+
+
+         echo "Available providers:"
+         echo
+
+
+         index=1
+
+
+         for provider in "${found_providers[@]}"; do
+             echo "[$index] $provider"
+             ((index++))
+         done
+
+
+         echo "[$index] Cancel"
+         echo
+
+         read -rp "What the fuck do you want (i hope you get an infected package bitch) [1-$index]: " choice
+
+
+         if [ "$choice" -eq "$index" ]; then
+              echo "Canceled."
+              exit 0
+         fi
+
+
+         selected_provider="${found_providers[$((choice-1))]}"
+
+
+         echo
+         echo "Selected provider: $selected_provider"
+         ;;
+
+
+    install)
+        if [ -z "$2" ]; then
+            echo "Usage: shit-pkg install <package>"
+            exit 1
+        fi
+
+
+        echo "installing: $2"
+        echo
+
+
+        echo "Available providers:"
+        echo
+
+        index=1
+
+        for provider in "${providers[@]}"; do
+            echo "[$index] $provider"
+            ((index++))
+        done
+
+
+       echo "[$index] Cancel"
+       echo
+
+       read -rp "which provider do you want, cuckold? [1-$index]: " choice
+
+
+       if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
+            echo "That's not a fucking number bradar."
+            exit 0
+       fi
+
+
+       if [ "$choice" -eq "$index" ]; then
+            echo "Canceled. (pussy :P)"
+            exit 0
+       fi
+
+
+       if [ "$choice" -lt 1 ] || [ "$choice" -gt "$index" ]; then
+            echo "Invalid provider."
+            exit 1
+       fi
+
+
+       selected_provider="${providers[$((choice-1))]}"
+
+
+       echo
+       echo "Selected provider: $selected_provider"
+       echo "Handing package over to $selected_provider. . ."
+       echo
+
+
+      "$SCRIPT_DIR/providers/$selected_provider" install "$2"
+      ;;
+
+
+    *)
+        echo "Usage:"
+        echo "  shit-pkg detect"
+        echo "  shit-pkg search <package>"
+        echo "  shit-pkg install <package>"
+        ;;
+
+esac
+
+
+
+
+
+
+
+
+
+#DISCARDED CODESLOP IG:
+# echo
+# echo "Architecture:"
+# echo "   shit-pkg"
+# echo "   | -- Portage fuck provider"
+# echo "   | -- Pacman dih provider"
+# echo "   \`-- APT shit provider"
